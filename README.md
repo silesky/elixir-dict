@@ -1,5 +1,9 @@
 # Dictionary
 
+
+watch -n 5 './dictionary'
+wr --exec 'mix escript.build'
+
 **TODO: Add description**
 
 ## Installation
