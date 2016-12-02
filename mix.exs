@@ -1,6 +1,6 @@
 defmodule Dictionary.Mixfile do
   use Mix.Project
-
+  
   def project do
     [app: :dictionary,
      version: "0.1.0",
@@ -28,6 +28,6 @@ defmodule Dictionary.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [{:json, "~> 1.0"} ]
   end
 end
