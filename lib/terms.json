@@ -1,0 +1,13 @@
+{ "atom":  {
+  "def": "constants with itself as value.",
+  "eg": 
+},
+  "char list": {
+    "def": "list of the 'code points' of each characters, rather than the chars themselves",
+    "eg": "[100, 200, 300]",
+  },
+  "guard clause": {
+    "def": "a way to augment pattern matching with more complex checks",
+    "eg": "def hello(name) when is_string(name) do..."
+  }
+}
