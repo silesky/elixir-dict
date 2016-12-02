@@ -1,13 +1,26 @@
-{ "atom":  {
-  "def": "constants with itself as value.",
-  "eg": 
-},
+{
+  "atom": {
+    "def": "constants with itself as value.",
+    "eg": null
+  },
   "char list": {
-    "def": "list of the 'code points' of each characters, rather than the chars themselves",
-    "eg": "[100, 200, 300]",
+    "def": ["list of the 'code points' of each characters, rather than the chars themselves"],
+    "eg": "[100, 200, 300]"
   },
   "guard clause": {
-    "def": "a way to augment pattern matching with more complex checks",
+    "def": ["a way to augment pattern matching with more complex checks"],
     "eg": "def hello(name) when is_string(name) do..."
+  },
+  "plug": {
+    "def": ["The spec that lets different frameworks talk to eachother in the erling vim", "a type of dependency (i.e goes in our mix.exs file", "a piece of code that that recieves a data structure, does some sort of transformation, and returns this same data structure, slightly modified"],
+    "eg": null
+  },
+  "directive": {
+    "def": ["a type of module with lexical scope"],
+    "eg": "require Foo, import Foo"
+  },
+  "require": {
+    "def": ["We use import whenever we want to easily access functions or macros from other modules without using the fully-qualified name."],
+    "eg": "require Foo"
   }
 }
