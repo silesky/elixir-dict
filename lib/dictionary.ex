@@ -1,40 +1,43 @@
-
+# mix escript.build
+# watch -n 1 ./dictionary
+# Enum.find([1, 2, 3], fn (el) -> el == 1 end) // 1
+# Enum.map([1, 2, 3], fn(el) -> el * 2 end) // [2, 4, 6]
+# Map.get(%{a: 1}, :a) // 1
 
 
 defmodule Dictionary do
 
-  # mix escript.build
-  # watch -n 1 ./dictionary 
   def main(args) do
-    # terms = File.read!("terms.json");
-    IO.inspect parse_terms
-    IO.puts "main method!!."
-    args 
-    |> parse_args 
-    |> lookup 
+    IO.puts "main method called..." 
+    args
+    |> parse_args
+    |> lookup
+    |> IO.inspect
+  end
+    
+  defp find_term(term) do # given a term, searches terms.json and returns the matching term
+    { :ok, terms } = "./lib/terms.json"
+      |> File.read!
+      |> JSON.decode
+    item = Enum.find(terms, fn(el) -> Map.get(el, term) end)
+    item
   end
 
-
-  def parse_terms() do
-   { :ok, stuff } = "./lib/terms.json"
-   |> File.read!
-   |> JSON.decode 
-   stuff
-  #returns the last value
-  end
-  defp parse_args(args) do
+  defp parse_args(args) do # defp i.e. private
     {_, _, [{_, word}]} = OptionParser.parse(args);
-    IO.inspect word
-      # IO.puts "searching for #{item}'
+    word
   end
-    def lookup(word) do
-      case word do
-      "atom" -> IO.puts "atoms - constants! with itself as value."
-      "char list" -> IO.puts "list of the 'code points' of each characters, rather than the chars themselves"
-      _->  IO.puts "nothing found"
-    end
+
+  def lookup(args) do
+    foundItem = find_term(args)
+    newItem = foundItem
+    |> Map.get(args)
+    |> Map.get("def")
+    newItem
   end
-  def transformer([]) do 
+
+  def transformer([]) do
     IO.puts "no arguments given"
   end
+
 end
